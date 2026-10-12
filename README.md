@@ -1,4 +1,4 @@
-# IP-BRIX Metamaterial
+# IP-Brix Metamaterial
 
 **Design, finite-element iteration, and nanoscale compression testing of a body-centered-cubic metamaterial unit cell fabricated by two-photon lithography.**
 
@@ -27,14 +27,12 @@ The team’s design ranked in the **top quartile for both stiffness and toughnes
 
 | Metric | Result |
 |---|---:|
-| Stiffness | TODO |
-| Toughness | TODO |
-| Relative density | TODO |
-| Class percentile/rank — stiffness | TODO |
-| Class percentile/rank — toughness | TODO |
-| Tested compression direction | TODO |
-| Peak force | TODO |
-| Displacement at failure / end of test | TODO |
+| Stiffness | 323 MPA (2.7x tetrakaidecahedron sample stiffness) |
+| Toughness | 5.6 MJ/m^3 (2.8x tetrakaidecahedron sample stiffness)|
+| Relative density | 24.98% |
+| Class rank — stiffness | 13/41 |
+| Class rank — toughness | 9/41 |
+| Tested compression direction | -z |
 
 <p align="center">
   <img src="images/metamaterial_results.png" alt="Class comparison of metamaterial stiffness and toughness" width="80%">
@@ -52,7 +50,7 @@ The unit cell uses a body-centered-cubic architecture and was repeated \(5 \time
 
 | Requirement / parameter | Value |
 |---|---|
-| Base material | IP-BRIX |
+| Base material | IP-Brix |
 | Unit-cell architecture | Body-centered cubic (BCC) |
 | Tessellation | \(5 \times 5 \times 5\) |
 | Printed structure size | \(150\,\mu\text{m} \times 150\,\mu\text{m} \times 150\,\mu\text{m}\) |
@@ -60,11 +58,7 @@ The unit cell uses a body-centered-cubic architecture and was repeated \(5 \time
 | Minimum feature size | 15% of a side length |
 | Fabrication method | Two-photon lithography |
 | Fabrication facility | MIT.nano |
-| Number of designs physically fabricated | One |
-| Exact final relative density |  |
-| Exact minimum feature size in the final CAD |  |
-
-> **:** Confirm whether the 15% minimum-feature requirement was defined relative to the unit-cell side length or the full tessellated specimen, and add the official design requirements if available.
+| Exact final relative density | 24.98% |
 
 ## Design iteration
 
@@ -88,15 +82,12 @@ FEA was used to simulate compression, compare candidate designs, examine predict
   <img src="images/stress_analysis.png" alt="Finite-element stress analysis with annotated yielding, buckling, and stress-concentration regions" width="760">
 </p>
 
-*Annotated stress-analysis image. Add the actual image at `images/stress_analysis.png`, or change this path to match the repository.*
 
 The analysis considered:
 
-- **Likely yielding regions:** TODO — identify the members or joints and the relevant stress criterion.
-- **Potential buckling:** TODO — identify the columns or cross-members most susceptible to instability.
+- **Yielding regions:** The columns, though larger in dimension than cross-sections, most directly felt the vertical uniaxial compression, and were most likely to buckle first. The first failure would then propagate throughout.
 - **Stress concentrations:** Fillets were added at selected transitions to reduce local stress concentrations.
-- **Stress concentration factor (SCF):** TODO — provide the definition, the nominal and peak stress values, and the resulting SCF if calculated.
-- **Fast-fracture likelihood:** TODO — explain the conclusion and supporting evidence, including whether material fracture properties or only stress contours were available.
+- **Total Failure Mode:** Though high stiffness was a priority, we also wanted to design for high toughness. To do so, the internal structure of each cell had to be complex and span the cross-section so that upon failure, the material inside the cells would collapse on itself, storing additional energy in compression.
 
 A stress contour can identify candidate hot spots, but it does not by itself establish a numerical SCF or prove that fast fracture will occur. Those conclusions depend on the stress definition, material properties, defect scale, and relevant failure criterion.
 
@@ -177,18 +168,6 @@ This repository currently documents the design and testing process. Full computa
 5. Perform uniaxial nanomechanical compression and record force–displacement data.
 6. Apply the documented stiffness and toughness calculations and compare results with the class dataset.
 
-| Reproduction input | Status |
-|---|---|
-| Final CAD model | TODO |
-| FEA project files and solver/version | TODO |
-| Material model and properties | TODO |
-| Mesh settings and convergence check | TODO |
-| Boundary conditions and contact assumptions | TODO |
-| Fabrication parameters | TODO |
-| Raw force–displacement data | TODO |
-| Analysis scripts / calculation workbook | TODO |
-| Class comparison dataset | TODO |
-
 ## Limitations and future work
 
 - Only one design was fabricated, so physical comparisons between candidate geometries were not possible.
@@ -208,12 +187,11 @@ Potential next steps:
 
 ## Why I built this
 
-> **TODO:** In your own voice, explain what interested you about designing and optimizing a mechanical metamaterial and what you wanted to learn from the project.
+The project was for a class, but because the project was presented as a competition, naturally it exceeded my expectations for a classical class project. Over a couple weeks, my teammates and I iterated a cell design, motivated by the goal of one, producing a metamaterial with characteristics unlike alloys and pure stock, and two, outperforming out classmates. 
 
 ## What I learned
 
-> **TODO:** Describe the most useful engineering lesson from the project. Possible themes include simulation-guided design under expensive fabrication constraints, stiffness–toughness trade-offs, and the difference between ideal FEA geometry and a physically tested microstructure.
-
+The extreme constraint on prototyping made this project unlike any other. Due to the extreme costs associated with producing parts on the scale of hundreds of micrometers using two-photon lithography, we could only produce one tessellated cube. Because of this, I was able to hone my FEA skills to assist the optimization of our initial geometry. I also built on my understanding of 2.002: Mechanics and Materials II material by using particular high-level trends to come up with an initial prototype, and using theory and low-level concepts to improve the design after analysis in SolidWorks.
 
 ## Contact
 
